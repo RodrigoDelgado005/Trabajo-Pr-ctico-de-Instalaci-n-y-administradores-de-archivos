@@ -1,0 +1,239 @@
+Rodrigo Delgado
+7mo 4ta
+Pablo abdala
+
+Trabajo Práctico Nro 6: Instalación de Sistemas Operativos y Administradores de Archivos
+
+1- Los pasos para la instalacion son:
+
+1. Preparación del Medio de Instalación:
+Para instalar un sistema operativo en modo UEFI, primero se necesita crear un medio de instalación compatible, como una memoria USB.
+
+A. Descargar la ISO del Sistema Operativo
+
+B. Crear un Medio de Instalación
+- Utiliza una herramienta como Rufus (Windows), balenaEtcher (multiplataforma), o `dd` (Linux) para crear un medio de instalación UEFI.
+
+    - Rufus:
+        1- Conectar la memoria USB a la computadora.
+        2- Abrir Rufus.
+        3- Seleccionar la ISO del sistema operativo.
+        4. En "Esquema de partición", seleccionar "GPT".
+        5- En "Sistema de destino", asegúrarse de que "UEFI (no CSM)" esté seleccionado.
+        6- Haz clic en "Empezar" para crear el medio de instalación.
+
+    - balenaEtcher:
+        1- Abrir balenaEtcher.
+        2- Seleccionar la imagen ISO del sistema operativo.
+        3- Seleccionar la unidad USB.
+        4- Seleccionar "Flash!" para crear el medio de instalación.
+
+2. Configuración del Firmware UEFI:
+Para asegurarse de que el sistema arranca en modo UEFI, se debe configurar correctamente el firmware UEFI de la computadora.
+
+A. Entrar en el Firmware UEFI
+- Reiniciar la computadora y presiona la tecla adecuada (como F2, F10, DEL, ESC) para acceder al firmware UEFI. 
+
+B. Configurar las Opciones UEFI
+- Dentro del firmware UEFI:
+    - Asegúrarse de que el modo UEFI esté habilitado. Esto puede estar en la sección "Boot" o "Startup".
+    - Deshabilitar el modo Legacy o CSM (Compatibility Support Module) si está habilitado.
+    - Configurar la prioridad de arranque para que el medio de instalación USB sea el primer dispositivo de arranque.
+
+3. Manejo de Secure Boot
+Secure Boot es una característica de UEFI que ayuda a asegurar que solo software confiable se ejecute durante el arranque del sistema.
+
+A. Habilitar o Deshabilitar Secure Boot
+- Dependiendo del sistema operativo que estés instalando, puede que necesites deshabilitar Secure Boot temporalmente.
+    - Dentro del firmware UEFI, busca la opción "Secure Boot" y seleccionar "Disable" si es necesario.
+    - Para sistemas operativos modernos como Windows 10/11 o distribuciones Linux recientes que soportan Secure Boot, se puede dejar Secure Boot habilitado.
+- Si se necesita deshabilitar Secure Boot:
+    - Hay que asegurarse de guardar los cambios antes de salir del firmware UEFI.
+
+4. Instalación del Sistema Operativo
+- Con el medio de instalación preparado y la configuración UEFI correcta, el paso siguiente es seguir con la instalación del sistema operativo.
+    - Insertar el medio de instalación en la computadora.
+    - Reiniciar la computadora y arrancar desde el medio de instalación (USB).
+    - Sigue las instrucciones en pantalla para instalar el sistema operativo.
+
+5. Configuración Post-Instalación
+- Una vez que el sistema operativo esté instalado:
+    - Si se deshabilita Secure Boot, se debe considerar volver a habilitarlo para mayor seguridad.
+    - Configurar cualquier otra opción de seguridad necesaria en el firmware UEFI.
+
+6. Manejo de Claves Secure Boot
+- Secure Boot utiliza claves para verificar la autenticidad del software de arranque. A veces puede ser necesario agregar o administrar estas claves.
+    - Dentro del firmware UEFI, se puede acceder a las opciones de claves Secure Boot.
+    - Las claves de seguridad (KEK, db, dbx) pueden ser gestionadas manualmente si se cumple con los requerimientos específicos de seguridad..
+
+
+2- Requisitos de Instalación de Sistemas Operativos Actuales
+
+Windows 11:
+- Requisitos mínimos:
+  - Procesador: 1 GHz o más rápido con al menos dos núcleos en un procesador compatible de 64 bits.
+  - RAM: 4 GB.
+  - Almacenamiento: 64 GB.
+  - Firmware del sistema: UEFI, compatible con Secure Boot.
+  - TPM: Trusted Platform Module (TPM) versión 2.0.
+  - Tarjeta gráfica: Compatible con DirectX 12 o posterior con controlador WDDM 2.0.
+  - Pantalla: >9” con resolución HD (720p).
+
+- Requisitos recomendados:
+  - Procesador: 2 GHz o más rápido con múltiples núcleos.
+  - RAM: 8 GB o más.
+  - Almacenamiento: SSD de 128 GB o más.
+  - Otros componentes avanzados: Tarjeta gráfica dedicada, pantalla de alta resolución, etc.
+
+macOS Monterey:
+- Requisitos mínimos:
+  - Equipos compatibles incluyen iMac (finales de 2015 y posteriores), MacBook Air (2015 y posteriores), MacBook Pro (2015 y posteriores), y otros modelos más recientes.
+  - Espacio de almacenamiento: Al menos 35 GB para la instalación inicial.
+- Capacidades recomendadas:
+  - RAM: 8 GB o más para un rendimiento óptimo.
+  - Procesador: Apple M1 o Intel Core i5/i7 de última generación.
+  - Almacenamiento: SSD de 128 GB o más para asegurar un buen rendimiento del sistema. 
+
+Linux Mint:
+- Requisitos mínimos:
+  - Procesador: x86_64 (AMD64) architecture.
+  - RAM: 2 GB (se recomiendan 4 GB para un uso cómodo).
+  - Almacenamiento: 20 GB.
+
+- Requisitos recomendados:
+  - Procesador: CPU moderna con múltiples núcleos.
+  - RAM: 8 GB para un rendimiento más fluido.
+  - Almacenamiento: SSD de 100 GB o más para una mejor experiencia de usuario. 
+
+ Windows Server Editions
+
+Windows Server 2022:
+- Requisitos mínimos:
+  - Procesador: 1.4 GHz de 64 bits.
+  - RAM: 512 MB (Server Core), 2 GB (Desktop Experience).
+  - Almacenamiento: 32 GB.
+  - Otros: Compatible con DEP, NX, CMPXCHG16b, LAHF/SAHF, PrefetchW, y soporte para traducción de direcciones de segundo nivel (EPT o NPT).
+- Capacidades máximas:
+  - Memoria: Hasta 48 TB de RAM.
+  - Procesadores: Soporta hasta 64 sockets de CPU físicas y 2048 núcleos lógicos.
+  - Almacenamiento: Depende del hardware subyacente, sin límite específico en software.
+
+- Costos de licencias:
+  - Windows Server Standard: Aproximadamente $1,069 USD.
+  - Windows Server Datacenter: Aproximadamente $6,155 USD.
+
+3-El Trusted Platform Module (TPM) es un chip diseñado para proporcionar funciones relacionadas con la seguridad, y se utiliza para proteger hardware a través de funciones criptográficas integradas.Sus funciones principales son:
+
+Generación de Claves Criptográficas: Permite generar claves criptográficas, lo cual es fundamental para el cifrado y la firma digital. Estas claves pueden ser asimétricas (públicas y privadas) y se generan en el TPM para asegurar que nunca abandonen el chip.
+
+Cifrado y Descifrado: Permite cifrar y descifrar datos, asegurando que solo las entidades autorizadas puedan acceder a la información protegida.
+
+Firma Digital: Puede realizar operaciones de firma digital, lo cual es útil para verificar la integridad y autenticidad de los datos.
+
+Gestión de Contraseñas: Permite almacenar y gestionar contraseñas de manera segura, reduciendo el riesgo de que sean robadas
+
+Autenticación: Nos permite usarlo para autenticar dispositivos y usuarios, asegurando que solo las entidades autorizadas puedan acceder a los recursos protegidos.
+
+Sellado y Desellado: Permite "sellar" datos en el TPM, asociándolos con un estado específico del sistema (como una configuración específica de hardware y software). Estos datos solo pueden ser "desellados" (accedidos) cuando el sistema se encuentra en el mismo estado, lo cual protege contra modificaciones no autorizadas del sistema.
+
+4-GParted (GNOME Partition Editor):
+GParted es una herramienta de particionamiento de discos basada en Linux que permite a los usuarios crear, eliminar, redimensionar, mover y copiar particiones y los sistemas de archivos que contienen. Es compatible principalmente Linux, pero también puede ser usado en Windows y macOS a través de un Live CD/USB.
+
+Partition Wizard:
+MiniTool Partition Wizard es una herramienta de particionamiento de discos para Windows que permite a los usuarios gestionar particiones y discos duros. Ofrece funciones como crear, eliminar, redimensionar, mover, fusionar y dividir particiones, así como copiar discos y particiones, etc.
+
+EaseUS Partition Master: 
+EaseUS Partition Master es un software de gestión de particiones para Windows que permite a los usuarios redimensionar, mover, copiar, y fusionar particiones, entre otras funciones.
+
+5-GRUB (GRand Unified Bootloader)
+GRUB es un gestor de arranque altamente flexible y potente utilizado en una amplia gama de sistemas operativos, especialmente en Linux. 
+
+rEFInd
+rEFInd es un gestor de arranque gráfico diseñado específicamente para sistemas UEFI (Unified Extensible Firmware Interface), que son cada vez más comunes en equipos modernos. 
+
+EasyBCD
+EasyBCD es una herramienta de software para Windows que facilita la gestión del proceso de arranque del sistema. Se destaca por su interfaz gráfica intuitiva, que simplifica la creación y modificación de entradas de arranque dual (o múltiple)
+
+Comparacion:
+
+Modo de Arranque:
+GRUB: Funciona en ambos modos, MBR y UEFI.
+
+rEFInd: Compatible solo con UEFI.
+
+EasyBCD: Compatible con MBR y UEFI.
+
+Características:
+GRUB: Altamente configurable, ampliamente utilizado en sistemas Linux.
+
+rEFInd: Interfaz gráfica intuitiva, detecta automáticamente sistemas operativos instalados.
+
+EasyBCD: Herramienta de configuración de arranque para Windows, fácil de usar.
+
+Facilidad de Uso:
+GRUB: Puede ser complicado de configurar para usuarios no familiarizados con la línea de comandos.
+
+rEFInd: Interfaz gráfica que facilita la selección del sistema operativo deseado.
+
+EasyBCD: Interfaz gráfica fácil de usar para la configuración del arranque dual en sistemas Windows.
+
+Compatibilidad:
+GRUB: Compatible con una amplia variedad de sistemas operativos, incluidos Windows, macOS y diversas distribuciones de Linux.
+
+rEFInd: Funciona bien con sistemas Linux, macOS y Windows, pero es más popular en entornos Mac y Linux.
+
+EasyBCD: Principalmente utilizado con sistemas Windows, pero puede gestionar sistemas Linux en un arranque dual.
+
+6-
+1. File Explorer (Windows):
+   - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, acceso rápido a ubicaciones frecuentes.
+   - Capacidades de Expansión: Extensiones de terceros para agregar funcionalidades adicionales como vista de árbol, vista previa de archivos, integración con servicios en la nube, etc.
+
+2. Finder (macOS):
+   - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, vista previa rápida, etiquetado de archivos.
+   - Capacidades de Expansión: Extensiones y complementos para integrar servicios en la nube, mejorar la gestión de archivos y carpetas, y añadir funciones de organización avanzada.
+
+3. Nautilus (GNOME):
+   - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, acceso rápido a ubicaciones frecuentes, vista de archivos en pestañas.
+   - Capacidades de Expansión: Plugins para añadir funcionalidades como vista de miniaturas de archivos, integración con servicios en la nube, etc.
+
+4. Dolphin (KDE):
+   - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, vista previa rápida, etiquetado de archivos, gestión avanzada de archivos y carpetas.
+   - Capacidades de Expansión: Personalización a través de widgets, plugins y scripts para añadir nuevas funciones y mejorar la productividad.
+
+5. Thunar (Xfce):
+   - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, acceso rápido a ubicaciones frecuentes, gestión básica de archivos y carpetas.
+   - Capacidades de Expansión: Extensiones para añadir funciones adicionales como vista de árbol, integración con servicios en la nube, etc.
+
+6. Explorer++ (Windows):
+   - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, pestañas de navegación, personalización de la interfaz.
+   - Capacidades de Expansión: Complementos para añadir funciones como vista de miniaturas, integración con servicios en la nube, etc.
+
+7. Total Commander (Windows):
+   - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, acceso rápido a ubicaciones frecuentes, funciones avanzadas de administración de archivos.
+   - Capacidades de Expansión: Plugins para añadir funcionalidades como vista de miniaturas, integración con servicios en la nube, etc.
+
+8. Midnight Commander (Linux/Unix):
+   - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, acceso rápido a ubicaciones frecuentes, gestión de archivos en modo texto.
+   - Capacidades de Expansión: Personalización a través de scripts y plugins para añadir nuevas funciones y mejorar la productividad.
+
+9. ES File Explorer (Android):
+   - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, acceso a servicios en la nube, gestión de archivos multimedia.
+   - Capacidades de Expansión: Integración con servicios en la nube, plugins para añadir funciones adicionales, como gestión de archivos remotos.
+
+10. Astro File Manager (Android):
+    - Funcionalidades: Navegación de archivos, copiar, mover, eliminar, búsqueda de archivos, acceso a servicios en la nube, gestión de archivos multimedia.
+    - Capacidades de Expansión: Integración con servicios en la nube, plugins para añadir funciones adicionales, como gestión de archivos remotos.
+
+Clasificación por Categoría:
+
+- Sistemas Operativos de Escritorio (Windows, macOS, Linux): File Explorer, Finder, Nautilus, Dolphin, Thunar, Explorer++, Total Commander, Midnight Commander.
+- Sistemas Operativos Móviles (Android): ES File Explorer, Astro File Manager.
+
+Descripción de Categorías:
+
+1. Sistemas Operativos de Escritorio:
+Administradores de archivos diseñados para sistemas operativos de escritorio como Windows, macOS y Linux, ofrecen una amplia gama de funcionalidades y capacidades de personalización. Ejemplos: File Explorer, Finder, Nautilus, Dolphin, Thunar, Explorer++, Total Commander, Midnight Commander.
+
+2. Sistemas Operativos Móviles:
+ Administradores de archivos diseñados para sistemas operativos móviles como Android, ofrecen funcionalidades básicas de gestión de archivos y acceso a servicios en la nube. Ejemplos: ES File Explorer, Astro File Manager.
